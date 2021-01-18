@@ -25,6 +25,9 @@ public class HMDEmulator : MonoBehaviour
 
             Vector3 rot = camTr.localEulerAngles + mouseVec;
 
+            //Quaternion.Euler(오일각도)  : 오일각(x,y,z) ==> 쿼터니언(x,y,z,w)
+            //짐벌락(Gimbal Lock) 방지하기 위해서 쿼터니언을 사용
+            camTr.localRotation = Quaternion.Euler(rot);
         }
     }
 
