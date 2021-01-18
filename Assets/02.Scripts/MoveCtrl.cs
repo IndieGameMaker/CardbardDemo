@@ -19,6 +19,8 @@ public class MoveCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Vector3 dir = camTr.forward;
+
+        cc.SimpleMove(dir * moveSpeed);
     }
 }
