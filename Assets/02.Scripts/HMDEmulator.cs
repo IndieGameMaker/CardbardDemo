@@ -20,7 +20,11 @@ public class HMDEmulator : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftAlt))  //GetKeyDown, GetKeyUp
         {
-            Debug.Log("LeftAlt pressed !!!");
+            //Debug.Log("LeftAlt pressed !!!");
+            Vector3 mouseVec = new Vector3(-Input.GetAxis("Mouse Y") * pitchSpeed, Input.GetAxis("Mouse X") * yawSpeed, 0);
+
+            Vector3 rot = camTr.localEulerAngles + mouseVec;
+
         }
     }
 
