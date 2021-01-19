@@ -24,7 +24,7 @@ public class CastManager : MonoBehaviour
         ray = new Ray(camTr.position, camTr.forward);
         Debug.DrawRay(ray.origin, ray.direction * distance, Color.green);
 
-        if (Physics.Raycast(ray, out hit, distance, 1<<8)) //1<<8 = 2^8 = 256
+        if (Physics.Raycast(ray, out hit, distance, 1<<8 | 1<<9)) //1<<8 = 2^8 = 256
         {
             MoveCtrl.isStopped = true;
         }
