@@ -10,7 +10,7 @@ public class MoveCtrl : MonoBehaviour
     private Transform tr;   //자신의 Transform 컴포넌트를 저장할 변수
     private CharacterController cc; //이동처리를 위한 컴포너트
 
-    public bool isStopped = false;
+    public static bool isStopped = false;
 
     void Start()
     {
