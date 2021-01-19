@@ -23,5 +23,10 @@ public class CastManager : MonoBehaviour
     {
         ray = new Ray(camTr.position, camTr.forward);
         Debug.DrawRay(ray.origin, ray.direction * distance, Color.green);
+
+        if (Physics.Raycast(ray, out hit, distance, 1<<8)) //1<<8 = 2^8 = 256
+        {
+            Debug.Log("Hit = " + hit.transform.name);
+        }
     }
 }
