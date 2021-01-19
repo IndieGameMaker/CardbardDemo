@@ -15,12 +15,13 @@ public class CastManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        camTr = Camera.main.GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        ray = new Ray(camTr.position, camTr.forward);
+        Debug.DrawRay(ray.origin, ray.direction * distance, Color.green);
     }
 }
