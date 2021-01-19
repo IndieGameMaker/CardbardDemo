@@ -40,10 +40,33 @@ public class CastManager : MonoBehaviour
         if (Physics.Raycast(ray, out hit, distance, 1<<9))
         {
             //이전에 응시했던 버튼과 다른 버튼일 경우 (새로운 버튼을 응시했을때)
-            
+            if (lookObject != hit.transform.gameObject)
+            {
+                //이전에 응시했던 버튼 PointerExit 이벤트
+                lookObject?.SendMessage("OnGazeExit");
+                
+                // if (lookObject != null)
+                // {
+                //     lookObject.SendMessage("OnGazeExit");
+                // }
 
-            //이전에 응시했던 버튼 PointerExit 이벤트
-            //새로 응시한 버튼 PointerEnter 이벤트
+                lookObject = hit.transform.gameObject;
+
+                //새로 응시한 버튼 PointerEnter 이벤트
+                lookObject.SendMessage("OnGazeEnter");
+            }
+        }
+        else
+        {
+            lookObject?.SendMessage("OnGazeExit");
+
+            /*
+                if (lookObject != null)
+                {
+                    lookObject.SendMessage("OnGazeExit");
+                }
+            */
+            lookObject = null;
         }
     }
 }
