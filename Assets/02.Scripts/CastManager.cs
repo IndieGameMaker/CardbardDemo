@@ -26,7 +26,6 @@ public class CastManager : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, distance, 1<<8)) //1<<8 = 2^8 = 256
         {
-            Debug.Log("Hit = " + hit.transform.name);
             MoveCtrl.isStopped = true;
         }
         else
