@@ -12,6 +12,9 @@ public class CastManager : MonoBehaviour
     [Range(5.0f, 20.0f)]
     public float distance = 10.0f;
 
+    //바라본 객체를 저장할 변수
+    private GameObject lookObject = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +34,16 @@ public class CastManager : MonoBehaviour
         else
         {
             MoveCtrl.isStopped = false;
+        }
+
+
+        if (Physics.Raycast(ray, out hit, distance, 1<<9))
+        {
+            //이전에 응시했던 버튼과 다른 버튼일 경우 (새로운 버튼을 응시했을때)
+            
+
+            //이전에 응시했던 버튼 PointerExit 이벤트
+            //새로 응시한 버튼 PointerEnter 이벤트
         }
     }
 }
